@@ -20,18 +20,21 @@ public class Purchase {
     @ManyToOne
     private User user;
     @ManyToOne
+    private User supplier;
+    @ManyToOne
     private Status status;
 
     public Purchase() {
         
     }
 
-    public Purchase(Integer id, String purchase_record, Double value, Product product, User user, Status status) {
+    public Purchase(Integer id, String purchase_record, Double value, Product product, User user, User supplier, Status status) {
         this.id = id;
         this.purchase_record = purchase_record;
         this.value = value;
         this.product = product;
         this.user = user;
+        this.supplier = supplier;
         this.status = status;
     }
 
@@ -81,6 +84,14 @@ public class Purchase {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public User getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(User supplier) {
+        this.supplier = supplier;
     }
 
     public Status getStatus() {
